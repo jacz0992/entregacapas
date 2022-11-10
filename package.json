@@ -5,7 +5,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js"
+		"start": "nodemon index.js Mongo",
+		"dev": "NODE_ENV=development nodemon index.js serve --port=8080 Mem",
+		"prod": "NODE_ENV=production nodemon index.js serve --port=8080 Mongo",
+		"test": "mocha test/*.test.js"
 	},
 	"engines": {
 		"node": ">=14.0.0",
@@ -15,13 +18,13 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"artillery": "^1.7.2",
-		"autocannon": "^7.3.0",
+		"axios": "^0.21.1",
 		"bcrypt": "^5.0.1",
 		"child_process": "^1.0.2",
 		"compression": "^1.7.4",
 		"connect-mongo": "^4.4.1",
 		"cookie-parser": "^1.4.5",
+		"dotenv": "^10.0.0",
 		"esm": "^3.2.25",
 		"express": "^4.17.1",
 		"express-graphql": "^0.12.0",
@@ -40,6 +43,12 @@
 		"rxjs": "^6.6.6",
 		"socket.io": "^3.1.0",
 		"twilio": "^3.63.0",
-		"typescript": "^4.2.3"
+		"typescript": "^4.2.3",
+		"yargs": "^17.0.1"
+	},
+	"devDependencies": {
+		"chai": "^4.3.4",
+		"mocha": "^9.0.2",
+		"supertest": "^6.1.4"
 	}
 }
